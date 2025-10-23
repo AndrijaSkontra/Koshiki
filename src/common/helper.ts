@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto';
 import Handlebars from 'handlebars';
-import { LayoutType } from './types';
+import { DeviceType, LayoutType } from './types';
 
 export function koshiki(html: string, type: LayoutType, templateValues?: any) {
   const tempValuedMod = templateValues || {};
@@ -10,7 +10,7 @@ export function koshiki(html: string, type: LayoutType, templateValues?: any) {
   return { data: partialName, type: type };
 }
 
-export function getLayoutType(userAgentHeader: string): LayoutType {
+export function getLayoutType(userAgentHeader: string): DeviceType {
   const mobilePatterns = [
     /Android/i,
     /webOS/i,
@@ -29,6 +29,6 @@ export function getLayoutType(userAgentHeader: string): LayoutType {
   ];
 
   return mobilePatterns.some((pattern) => pattern.test(userAgentHeader))
-    ? 'dock'
-    : 'sidebar';
+    ? 'mobile'
+    : 'desktop';
 }

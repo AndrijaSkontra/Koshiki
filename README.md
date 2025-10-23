@@ -190,6 +190,59 @@ npm run format
 npm run lint
 ```
 
+## Code Formatting
+
+### djlint for Handlebars Templates
+
+This project uses [djlint](https://djlint.com/) for formatting `.hbs` (Handlebars) template files. djlint is a linter and formatter for HTML template languages.
+
+#### Installation
+
+Install djlint globally using pip:
+
+```bash
+pip install djlint
+```
+
+Or using pipx (recommended):
+
+```bash
+pipx install djlint
+```
+
+#### Usage
+
+Format a specific `.hbs` file:
+
+```bash
+djlint path/to/your/file.hbs --reformat
+```
+
+Format all `.hbs` files in a directory:
+
+```bash
+djlint src/ --reformat --extension=hbs
+```
+
+Check formatting without making changes:
+
+```bash
+djlint src/ --check --extension=hbs
+```
+
+Format all `.hbs` files in the project:
+
+```bash
+djlint . --reformat --extension=hbs
+```
+
+#### Common Options
+
+- `--reformat`: Format and modify files in place
+- `--check`: Check files without modifying them (useful for CI/CD)
+- `--extension=hbs`: Specify file extension to process
+- `--indent 2`: Set indentation to 2 spaces (default is 4)
+
 ## How the Technologies Work Together
 
 This application follows a modern web architecture pattern:
