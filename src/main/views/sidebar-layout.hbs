@@ -1,35 +1,44 @@
 <p class='bg-orange-500'>
-  <div class='drawer lg:drawer-open'>
-    <input id='my-drawer' type='checkbox' class='drawer-toggle' />
-    <div class='drawer-content'>
-      <label
-        for='my-drawer'
-        class='lg:hidden drawer-button'
-      >
-        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 7L4 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M20 12L4 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M20 17L4 17" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </label>
-      {{> (getInsidePartial) }}
-    <div class='drawer-side'>
-      <label
-        for='my-drawer'
-        aria-label='close sidebar'
-        class='drawer-overlay'
-      ></label>
-      <ul class='menu bg-base-200 text-base-content min-h-full w-44 p-4'>
-        <!-- Sidebar content here -->
-        <li><a>Sidebar Item 1</a></li>
-        <li><a>Sidebar Item 2</a></li>
-        <form hx-post="/logout">
-          <button class="btn btn-error">
-            Log out
-            <img class='htmx-indicator' src='/spinner.svg' />
-          </button>
-        </form>
-      </ul>
-    </div>
-  </div>
-</p>
+    <div class='drawer lg:drawer-open'>
+        <input id='my-drawer' type='checkbox' class='drawer-toggle' />
+        <div class='drawer-content'>
+            <div class="w-full border-b border-black p-2 lg:hidden flex justify-between sticky top-0 z-10 bg-base-100/60 backdrop-blur-md items-center">
+                <label for='my-drawer' class='drawer-button'>
+                    <svg width="40px"
+                         height="40px"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 7L4 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M20 12L4 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M20 17L4 17" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </label>
+                <div class="text-lg font-bold">
+                    <p>Feedback</p>
+                </div>
+                <div>
+                    <img src="/icon.png" class="w-8 h-8" />
+                </div>
+            </div>
+            <div class="p-2">{{> (getInsidePartial) }}</div>
+            <div class='drawer-side'>
+                <label for='my-drawer' aria-label='close sidebar' class='drawer-overlay'></label>
+                <ul class='menu bg-base-200 text-base-content min-h-full w-44 p-4'>
+                    <!-- Sidebar content here -->
+                    <li>
+                        <a>Sidebar Item 1</a>
+                    </li>
+                    <li>
+                        <a>Sidebar Item 2</a>
+                    </li>
+                    <form hx-post="/logout">
+                        <button class="btn btn-error">
+                            Log out
+                            <img class='htmx-indicator' src='/spinner.svg' />
+                        </button>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </p>
