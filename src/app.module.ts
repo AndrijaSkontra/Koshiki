@@ -8,9 +8,11 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SupabaseAuthProvider } from './auth/supabase-provider';
 import { MyExceptionFilter } from './common/exception.filter';
+import { DebugController } from './browser-debug/browser-debug.controller';
 
 @Module({
   imports: [AuthModule, TemplateModule, DashboardModule],
+  controllers: [DebugController],
   providers: [
     SupabaseAuthProvider,
     TemplateService,
